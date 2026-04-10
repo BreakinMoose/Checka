@@ -1,10 +1,9 @@
 {
-  "id": "file-explorer-checkboxes",
-  "name": "File Explorer Checkboxes",
+  "id": "checka",
+  "name": "Checka",
   "version": "1.0.0",
   "minAppVersion": "1.0.0",
-  "description": "Adds checkboxes next to notes in the file explorer sidebar for tracking progress.",
-  "author": "William Rymer",
-  "authorUrl": "https://linkedin.com/in/williamjrymer/",
+  "description": "Checkboxes in your file explorer with built-in spaced repetition. Rate each note as Hard, Meh, or Great and Checka schedules your next review.",
+  "author": "Moose",
   "isDesktopOnly": false
 }

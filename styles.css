@@ -3,7 +3,7 @@
   align-items: center !important;
 }
 
-.fec-checkbox-wrap {
+.checka-wrap {
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
@@ -15,7 +15,7 @@
   z-index: 50;
 }
 
-.fec-checkbox {
+.checka-cb {
   width: 14px;
   height: 14px;
   cursor: pointer;
@@ -23,4 +23,102 @@
   transition: opacity 0.15s ease;
   margin: 0;
   padding: 0;
+}
+
+/* Due badge */
+.checka-badge {
+  position: absolute;
+  top: -2px;
+  right: -4px;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1;
+  min-width: 10px;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Overdue indicator */
+.nav-file-title.checka-overdue .nav-file-title-content {
+  color: var(--color-red);
+}
+
+.nav-file-title.checka-overdue .checka-badge {
+  background: var(--color-red);
+  color: white;
+}
+
+/* Due soon indicator */
+.nav-file-title.checka-due-soon .checka-badge {
+  background: var(--color-yellow);
+  color: var(--text-normal);
+}
+
+/* Rating modal */
+.checka-rating-modal {
+  text-align: center;
+}
+
+.checka-rating-question {
+  font-size: 1em;
+  margin-bottom: 16px;
+  color: var(--text-normal);
+}
+
+.checka-rating-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.checka-rating-btn {
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-size: 0.95em;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--background-modifier-border);
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.checka-rating-btn:hover {
+  transform: translateY(-1px);
+}
+
+.checka-rating-btn:active {
+  transform: translateY(0px);
+}
+
+.checka-rating-hard {
+  background: var(--color-red);
+  color: white;
+  border-color: var(--color-red);
+}
+
+.checka-rating-hard:hover {
+  filter: brightness(1.1);
+}
+
+.checka-rating-meh {
+  background: var(--color-yellow);
+  color: var(--text-normal);
+  border-color: var(--color-yellow);
+}
+
+.checka-rating-meh:hover {
+  filter: brightness(1.1);
+}
+
+.checka-rating-great {
+  background: var(--color-green);
+  color: white;
+  border-color: var(--color-green);
+}
+
+.checka-rating-great:hover {
+  filter: brightness(1.1);
 }

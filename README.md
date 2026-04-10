@@ -1,57 +1,68 @@
 # Checka
 
-A plugin that adds checkboxes next to your notes in the file explorer sidebar. Click them to track which notes you've reviewed, revised, or finished with.
+An Obsidian plugin that adds checkboxes to your file explorer with built-in spaced repetition. Check off a note, rate how well you know it, and Checka schedules when you should review it next.
 
-![Obsidian](https://img.shields.io/badge/Obsidian-v1.0.0+-7C3AED)
+## How it works
 
-## What it does
+Every note in your file explorer gets a checkbox. When you check one off, a popup asks you to rate your confidence:
 
-Each note in your file explorer gets a small checkbox. Checking it crosses the note name out and fades it, so you can see at a glance what you've been through and what's left. The checked state persists across sessions.
+- **Hard** - you struggled with it. Review again in 1 day, growing by x1.2 each time.
+- **Meh** - you sort of know it. Review in 2 days, growing by x1.5.
+- **Great** - you've got it down. Review in 4 days, growing by x2.
 
-You can hide checkboxes on specific notes via the right-click menu if you don't want them cluttering up non-relevant files (templates, config notes, etc.).
+The intervals compound on each review, so a note you keep rating "Great" spaces out to 4, 8, 16, 32 days and so on. Rating "Hard" pulls it back in.
+
+Notes that are due for review get a red `!` badge. Notes due within 24 hours get a `~` badge. Reviewed notes that aren't due yet fade out with a strikethrough so you can focus on what's left.
 
 ## Features
 
 - Checkbox next to every note in the file explorer
-- Checked notes get a strikethrough and fade (both configurable)
-- Right-click any note to hide/show its checkbox
+- Spaced repetition with three confidence levels (Hard, Meh, Great)
+- Due/overdue badges on notes that need reviewing
 - Clicking the checkbox does not open the note
+- Right-click any note to hide its checkbox or reset its review data
 - State follows file renames and cleans up after deletions
-- Command palette: "Show file explorer checkbox progress" for a quick count
-- Command palette: "Clear all file explorer checkboxes" to reset
-- Settings tab to tweak strikethrough, opacity, and manage data
+- Stale entries from deleted files are pruned automatically on startup
+- Auto-migrates data from earlier versions of the plugin
+
+### Commands
+
+Open the command palette and search for "Checka":
+
+- **Show review progress** - how many notes reviewed, how many due, percentage complete
+- **Show notes due for review** - lists notes that are due right now
+- **Clear all review data** - reset everything
+
+### Settings
+
+In Settings > Checka:
+
+- Toggle strikethrough on reviewed notes
+- Adjust opacity for reviewed notes and unchecked checkboxes
+- Toggle due badges on/off
+- Clear all review data or reset hidden files
 
 ## Installation
 
-### Via BRAT (recommended for now)
+### Via BRAT
 
-1. Install the [BRAT](https://github.com/TfTHacker/obsidian42-brat) plugin from Obsidian community plugins
+1. Install [BRAT](https://github.com/TfTHacker/obsidian42-brat) from community plugins
 2. In BRAT settings, click "Add Beta plugin"
 3. Enter the GitHub repo URL
-4. Enable the plugin in Settings > Community plugins
+4. Enable Checka in Settings > Community plugins
 
 ### Manual
 
 1. Download `main.js`, `styles.css`, and `manifest.json` from the latest release
-2. Create a folder at `YOUR_VAULT/.obsidian/plugins/file-explorer-checkboxes/`
+2. Create `YOUR_VAULT/.obsidian/plugins/checka/`
 3. Drop the three files in
-4. Reload Obsidian
-5. Enable the plugin in Settings > Community plugins
-
-## Settings
-
-In Settings > Checka you can:
-
-- **Strikethrough checked notes** - toggle the line-through on/off
-- **Checked note opacity** - how faded checked notes appear (0.1 very faded, 1.0 normal)
-- **Unchecked checkbox opacity** - how visible unchecked checkboxes are (lower = more subtle until you hover)
-- **Clear all checkboxes** - uncheck everything at once
-- **Reset hidden files** - re-enable checkboxes on notes you previously hid
+4. Reload Obsidian and enable the plugin
 
 ## Known limitations
 
-- This plugin manipulates the file explorer DOM directly because Obsidian doesn't expose a public API for adding elements to the sidebar. If a future Obsidian update changes the internal CSS class names (`nav-file-title`, `nav-files-container`), the plugin may need updating, to avoid this you can turn of auto-update for obsidian in the settings.
-- Checkboxes only appear on files, not folders.
+- The plugin injects checkboxes into the file explorer DOM directly because Obsidian has no public API for adding sidebar elements. If a future Obsidian update changes internal class names (`nav-file-title`, `nav-files-container`), the plugin may need updating.
+- Checkboxes appear on files only, not folders.
+- Spaced repetition intervals are not currently user-configurable (planned for a future release).
 
 ## License
 
