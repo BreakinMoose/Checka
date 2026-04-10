@@ -1,6 +1,6 @@
 {
   "id": "file-explorer-checkboxes",
-  "name": "File Explorer Checkboxes",
+  "name": "Checka",
   "version": "1.0.0",
   "minAppVersion": "1.0.0",
   "description": "Adds checkboxes next to notes in the file explorer sidebar for tracking progress.",
