@@ -1,6 +1,6 @@
-# File Explorer Checkboxes
+# Checka
 
-An Obsidian plugin that adds checkboxes next to your notes in the file explorer sidebar. Click them to track which notes you've reviewed, revised, or finished with.
+A plugin that adds checkboxes next to your notes in the file explorer sidebar. Click them to track which notes you've reviewed, revised, or finished with.
 
 ![Obsidian](https://img.shields.io/badge/Obsidian-v1.0.0+-7C3AED)
 
@@ -40,7 +40,7 @@ You can hide checkboxes on specific notes via the right-click menu if you don't 
 
 ## Settings
 
-In Settings > File Explorer Checkboxes you can:
+In Settings > Checka you can:
 
 - **Strikethrough checked notes** - toggle the line-through on/off
 - **Checked note opacity** - how faded checked notes appear (0.1 very faded, 1.0 normal)
@@ -50,7 +50,7 @@ In Settings > File Explorer Checkboxes you can:
 
 ## Known limitations
 
-- This plugin manipulates the file explorer DOM directly because Obsidian doesn't expose a public API for adding elements to the sidebar. If a future Obsidian update changes the internal CSS class names (`nav-file-title`, `nav-files-container`), the plugin may need updating.
+- This plugin manipulates the file explorer DOM directly because Obsidian doesn't expose a public API for adding elements to the sidebar. If a future Obsidian update changes the internal CSS class names (`nav-file-title`, `nav-files-container`), the plugin may need updating, to avoid this you can turn of auto-update for obsidian in the settings.
 - Checkboxes only appear on files, not folders.
 
 ## License
